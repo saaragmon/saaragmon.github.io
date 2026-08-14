@@ -70,7 +70,7 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
 .home{
   position:relative;display:flex;flex-wrap:wrap;gap:1.5rem;
   min-height:100vh;align-items:center;padding-top:6.5rem;
-  background:linear-gradient(135deg,#eef1ff 0%,#f7f7f7 50%,#faf0ff 100%);
+  background:#f7f7f7;
 }
 #particles-js{position:absolute;top:0;left:0;height:100%;width:100%;}
 .home .content{flex:1 1 40rem;padding-top:1rem;z-index:1;}
@@ -83,8 +83,8 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
 .home .image img:hover{box-shadow:0 5px 20px rgba(0,0,0,.5);}
 .home .content h2{font-size:5rem;font-weight:800;color:#002057;line-height:1.2;}
 .home .content h2 span{font-size:5rem;font-weight:800;color:#ff7b00;}
-.home .content p{font-size:2.5rem;color:#000;font-weight:600;padding:1rem 0;}
-.home .content p span{font-size:2.5rem;color:rgb(148,8,8);font-weight:700;}
+.home .content p{font-size:2.5rem;color:#000;font-weight:600;padding:1rem 0;text-transform:capitalize;}
+.home .content p span{font-size:2.5rem;color:rgb(148,8,8);font-weight:700;text-transform:capitalize;}
 .btn{
   display:inline-flex;align-items:center;margin-top:1rem;
   padding:1.4rem 2.6rem;border-radius:4em;
@@ -347,7 +347,7 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
     <h2>Hi There,<br/> I'm Saar <span>Agmon</span></h2>
     <p>I turn data into <span class="typing-text"></span></p>
     <a href="#about" class="btn"><span>About Me</span><i class="fas fa-arrow-circle-down"></i></a>
-    <a href="#" id="cv-download" download="Saar_Agmon_CV.pdf" class="btn alt"><span>Download CV</span><i class="fas fa-file-download"></i></a>
+    <a href="./Saar_Agmon_CV.pdf" id="cv-download" download class="btn alt"><span>Download CV</span><i class="fas fa-file-download"></i></a>
     <div class="socials">
       <ul class="social-icons">
         <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/saar-agmon/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></li>
@@ -388,7 +388,7 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
         </div>
       </div>
       <div class="resumebtn">
-        <a href="#" id="cv-download-2" download="Saar_Agmon_CV.pdf" class="btn"><span>Resume</span><i class="fas fa-chevron-right"></i></a>
+        <a href="./Saar_Agmon_CV.pdf" id="cv-download-2" download class="btn"><span>Resume</span><i class="fas fa-chevron-right"></i></a>
       </div>
     </div>
   </div>
@@ -789,11 +789,11 @@ if (window.particlesJS){
   particlesJS('particles-js', {
     particles: {
       number: { value: 70, density: { enable: true, value_area: 900 } },
-      color: { value: "#7303a7" },
+      color: { value: "#555555" },
       shape: { type: "circle" },
-      opacity: { value: 0.35, random: true },
+      opacity: { value: 0.45, random: true },
       size: { value: 3, random: true },
-      line_linked: { enable: true, distance: 140, color: "#2506ad", opacity: 0.25, width: 1 },
+      line_linked: { enable: true, distance: 150, color: "#888888", opacity: 0.35, width: 1 },
       move: { enable: true, speed: 1.6, direction: "none", out_mode: "out" }
     },
     interactivity: {
