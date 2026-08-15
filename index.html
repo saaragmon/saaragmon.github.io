@@ -387,9 +387,9 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#work">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -427,10 +427,17 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
       <h3>I'm Saar</h3>
       <span class="tag">Industrial Engineering &amp; Management</span>
       <p>
-        4th-year Industrial Engineering &amp; Management student at Ben-Gurion University, with hands-on experience in
-        data analysis, statistical modeling, and machine learning workflows. I analyze large-scale datasets using
-        Python, R, and SQL, validate data quality, detect anomalies, and transform complex data into actionable
-        insights.
+        I'm a 4th-year Industrial Engineering &amp; Management student at Ben-Gurion University focused on data
+        analytics, machine learning, and AI.
+      </p>
+      <p>
+        I enjoy taking messy or complex datasets and turning them into something useful — whether that's identifying
+        patterns in clinical movement data, building KPI dashboards, or using statistical models to support better
+        decisions.
+      </p>
+      <p>
+        My experience combines research, analytics, and real-world operational environments, which has taught me
+        to look beyond the numbers and understand the problem behind the data.
       </p>
       <div class="box-container">
         <div class="box">
@@ -525,30 +532,6 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
   </div>
 </section>
 
-<!-- ================= certifications ================= -->
-<section class="education" id="certifications">
-  <h1 class="heading"><i class="fas fa-certificate"></i> My <span>Certifications</span></h1>
-
-  <div class="box-container">
-    <div class="box">
-      <div class="image logo"><img src="./assets/cactus.png" alt="Cactus Capital Academy"></div>
-      <div class="content">
-        <h3>VC Analyst Program</h3>
-        <p>Cactus Capital Academy</p>
-        <h4>2026</h4>
-        <p class="note">Selected for a prestigious program in venture capital &amp; startup evaluation.</p>
-      </div>
-    </div>
-    <div class="box">
-      <div class="image logo"><img src="./assets/caai.jpg" alt="Civil Aviation Authority of Israel"></div>
-      <div class="content">
-        <h3>Certified Remote / UAV Pilot (up to 4 kg)</h3>
-        <p>Civil Aviation Authority of Israel (CAAI)</p>
-        <h4>2021</h4>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= projects ================= -->
 <section class="work" id="work">
@@ -560,12 +543,13 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
       <div class="content">
         <div class="tag">
           <span class="cat">Optimization</span>
-          <h3>JIT Single-Machine Scheduling</h3>
+          <h3>Production Scheduling Optimization</h3>
         </div>
         <div class="desc">
-          <p>Hybrid Genetic Algorithm + Linear Programming system for Just-In-Time single-machine scheduling — minimizing weighted earliness &amp; tardiness. Order crossover, ranking selection, swap mutation, and elitism, with PuLP-based LP result caching, Gantt charts, and a full LP-approximation defense reference.</p>
+          <p>Developed a data-driven optimization system to determine production schedules that minimize weighted earliness and tardiness costs.</p>
+          <p>Built a hybrid Genetic Algorithm + Linear Programming approach in Python, analyzed scheduling performance, and visualized results through automated Gantt charts.</p>
           <div class="stack">
-            <span>Python</span><span>Genetic Algorithm</span><span>PuLP / LP</span><span>Excel Solver</span>
+            <span>Python</span><span>Optimization</span><span>PuLP</span><span>Data Analysis</span><span>Visualization</span>
           </div>
           <div class="btns">
             <a href="https://github.com/saaragmon/Algorithms-for-Optimizing-Production-Processes" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
@@ -578,35 +562,18 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
       <div class="thumb"><i class="fas fa-music"></i></div>
       <div class="content">
         <div class="tag">
-          <span class="cat">Simulation</span>
-          <h3>Queuechella</h3>
+          <span class="cat">Analytics &amp; Simulation</span>
+          <h3>Queuechella — Festival Operations Analytics &amp; Simulation</h3>
         </div>
         <div class="desc">
-          <p>Discrete-event simulation of a two-day music festival — modeling multiple service stations and visitor types to study queueing behavior and operational KPIs. Sampling algorithms, event scheduling, and distribution fitting drive KPI-based operational recommendations.</p>
+          <p>Built a discrete-event simulation to analyze visitor flows and operational bottlenecks across a two-day music festival.</p>
+          <p>Analyzed service times and visitor behavior, fitted statistical distributions to observed data, and evaluated operational alternatives using KPI-based analysis.</p>
+          <p>The model was used to identify queue bottlenecks and compare operational scenarios to support data-driven resource-allocation decisions.</p>
           <div class="stack">
-            <span>Python</span><span>DES</span><span>Distribution Fitting</span>
+            <span>Python</span><span>Statistical Analysis</span><span>Simulation</span><span>KPI Analysis</span>
           </div>
           <div class="btns">
             <a href="https://github.com/saaragmon/queuechella-festival-simulation" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="box tilt">
-      <div class="thumb"><i class="fas fa-dumbbell"></i></div>
-      <div class="content">
-        <div class="tag">
-          <span class="cat">Software Design</span>
-          <h3>Gym Management System</h3>
-        </div>
-        <div class="desc">
-          <p>Object-oriented gym management system modeling members, trainers, classes, wellness services, and physiotherapists. Capacity management with waiting-list promotion, tiered pricing, cross-entity search, monthly billing &amp; salary computations, and a full test suite.</p>
-          <div class="stack">
-            <span>Python</span><span>OOP</span><span>Unit Testing</span>
-          </div>
-          <div class="btns">
-            <a href="https://github.com/saaragmon/Gym-Management-System-OOP" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
           </div>
         </div>
       </div>
@@ -709,6 +676,31 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
   </div>
 </section>
 
+<!-- ================= certifications ================= -->
+<section class="education" id="certifications">
+  <h1 class="heading"><i class="fas fa-certificate"></i> My <span>Certifications</span></h1>
+
+  <div class="box-container">
+    <div class="box">
+      <div class="image logo"><img src="./assets/cactus.png" alt="Cactus Capital Academy"></div>
+      <div class="content">
+        <h3>VC Analyst Program</h3>
+        <p>Cactus Capital Academy</p>
+        <h4>2026</h4>
+        <p class="note">Selected for a prestigious program in venture capital &amp; startup evaluation.</p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="image logo"><img src="./assets/caai.jpg" alt="Civil Aviation Authority of Israel"></div>
+      <div class="content">
+        <h3>Certified Remote / UAV Pilot (up to 4 kg)</h3>
+        <p>Civil Aviation Authority of Israel (CAAI)</p>
+        <h4>2021</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= contact ================= -->
 <section class="contact" id="contact">
   <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
@@ -765,9 +757,9 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
       <a href="#about"><i class="fas fa-chevron-circle-right"></i>About</a>
       <a href="#skills"><i class="fas fa-chevron-circle-right"></i>Skills</a>
       <a href="#education"><i class="fas fa-chevron-circle-right"></i>Education</a>
-      <a href="#certifications"><i class="fas fa-chevron-circle-right"></i>Certifications</a>
       <a href="#work"><i class="fas fa-chevron-circle-right"></i>Projects</a>
       <a href="#experience"><i class="fas fa-chevron-circle-right"></i>Experience</a>
+      <a href="#certifications"><i class="fas fa-chevron-circle-right"></i>Certifications</a>
     </div>
     <div class="box">
       <h3>Contact Info</h3>
