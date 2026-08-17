@@ -291,6 +291,13 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
   box-shadow:0 5px 18px rgba(48,68,247,.5);
 }
 #contact-form button:hover{background:#1a047e;transform:translateY(-2px);}
+#contact-form button:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+#contact-form .form-status{
+  display:block;text-align:right;font-size:1.3rem;font-weight:600;
+  margin-bottom:.8rem;min-height:1.6rem;
+}
+#contact-form .form-status.success{color:#0a8a3f;}
+#contact-form .form-status.error{color:#c0293c;}
 
 /* ================= footer ================= */
 .footer{background:#0e0f31;color:#e9eaf5;padding:4rem 9% 2rem;}
@@ -739,6 +746,9 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
     </div>
     <div class="content">
       <form id="contact-form" onsubmit="return handleContactSubmit(event)">
+        <input type="hidden" name="access_key" value="5a285ee0-38cf-4dec-9ad6-4dcb79572fdc">
+        <input type="hidden" name="subject" value="New message from your portfolio site">
+        <input type="checkbox" name="botcheck" class="hidden-honeypot" style="display:none">
         <div class="field">
           <input type="text" name="name" placeholder="Name" required>
           <i class="fas fa-user"></i>
@@ -756,6 +766,7 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
           <i class="fas fa-comment-dots"></i>
         </div>
         <div class="button-area">
+          <span id="contact-status" class="form-status" role="status" aria-live="polite"></span>
           <button type="submit">Submit <i class="fa fa-paper-plane"></i></button>
         </div>
       </form>
@@ -921,18 +932,42 @@ if (window.ScrollReveal){
   sr.reveal('.contact .content', { origin: 'right', delay: 200 });
 }
 
-// ============ contact form (mailto fallback) ============
+// ============ contact form (Web3Forms) ============
 function handleContactSubmit(e){
   e.preventDefault();
   var f = e.target;
-  var name  = encodeURIComponent(f.name.value);
-  var email = encodeURIComponent(f.email.value);
-  var phone = encodeURIComponent(f.phone.value || '');
-  var msg   = encodeURIComponent(f.message.value);
-  var body  = 'From: ' + decodeURIComponent(name) + ' <' + decodeURIComponent(email) + '>%0D%0A'
-            + (phone ? 'Phone: ' + decodeURIComponent(phone) + '%0D%0A%0D%0A' : '%0D%0A')
-            + decodeURIComponent(msg);
-  window.location.href = 'mailto:saaragmon26@gmail.com?subject=Portfolio%20contact%20from%20' + name + '&body=' + body;
+  var status = document.getElementById('contact-status');
+  var btn = f.querySelector('button[type="submit"]');
+
+  if (f.botcheck && f.botcheck.checked) return false; // honeypot tripped
+
+  var data = new FormData(f);
+  btn.disabled = true;
+  status.className = 'form-status';
+  status.textContent = 'Sending…';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: data
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(json){
+    if (json.success) {
+      status.className = 'form-status success';
+      status.textContent = "Thanks! I've got your details and will be in touch soon.";
+      f.reset();
+    } else {
+      status.className = 'form-status error';
+      status.textContent = 'Something went wrong. Please try again or email me directly.';
+    }
+  })
+  .catch(function(){
+    status.className = 'form-status error';
+    status.textContent = 'Something went wrong. Please try again or email me directly.';
+  })
+  .finally(function(){ btn.disabled = false; });
+
   return false;
 }
 
