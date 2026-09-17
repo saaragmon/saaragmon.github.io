@@ -434,13 +434,13 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
       <h3>I'm Saar</h3>
       <span class="tag">Industrial Engineering &amp; Management</span>
       <p>
-        I'm a 4th-year Industrial Engineering &amp; Management student at Ben-Gurion University focused on data
-        analytics, machine learning, and AI.
+        I'm a 4th-year Industrial Engineering &amp; Management student at Ben-Gurion University focused on
+        AI engineering - building LLM-powered tools, AI agents, and data-driven systems.
       </p>
       <p>
-        I enjoy taking complex datasets and turning them into something useful - whether that's identifying
-        patterns in clinical movement data, building KPI dashboards, or using statistical models to support better
-        decisions.
+        I enjoy taking complex problems and turning them into something useful - whether that's building an
+        AI agent that automates a workflow, identifying patterns in clinical movement data, building KPI
+        dashboards, or using statistical models to support better decisions.
       </p>
       <p>
         My experience combines research, analytics, and real-world operational environments, which has taught me
@@ -499,13 +499,8 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
       <div class="bar"><div class="info"><img src="https://img.icons8.com/color/96/chatgpt.png" alt="ChatGPT"><span>ChatGPT</span></div></div>
       <div class="bar"><div class="info"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude"><span>Claude</span></div></div>
       <div class="bar"><div class="info"><img src="https://cdn.simpleicons.org/cursor/000000" alt="Cursor"><span>Cursor</span></div></div>
-      <div class="bar"><div class="info"><img src="https://cdn.simpleicons.org/githubcopilot/24292E" alt="GitHub Copilot"><span>GitHub Copilot</span></div></div>
-      <div class="bar"><div class="info"><img src="https://cdn.simpleicons.org/openai/412991" alt="LLM APIs"><span>LLM APIs</span></div></div>
-      <div class="bar"><div class="info"><img src="https://img.icons8.com/color/96/bot.png" alt="AI Agents"><span>AI Agents</span></div></div>
-      <div class="bar"><div class="info"><img src="https://img.icons8.com/color/96/api-settings.png" alt="MCP"><span>MCP</span></div></div>
-      <div class="bar"><div class="info"><img src="https://img.icons8.com/color/96/wrench.png" alt="Tool Calling"><span>Tool Calling</span></div></div>
-      <div class="bar"><div class="info"><img src="https://img.icons8.com/color/96/json.png" alt="Structured Outputs"><span>Structured Outputs</span></div></div>
-      <div class="bar"><div class="info"><img src="https://img.icons8.com/color/96/flow-chart.png" alt="Workflow Orchestration"><span>Workflow Orchestration</span></div></div>
+      <div class="bar"><div class="info"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n"><span>n8n</span></div></div>
+      <div class="bar"><div class="info"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangChain"><span>LangChain</span></div></div>
     </div>
   </div>
 </section>
@@ -551,17 +546,57 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
   <div class="box-container">
 
     <div class="box tilt">
-      <div class="thumb"><i class="fas fa-search"></i></div>
+      <div class="thumb"><i class="fas fa-robot"></i></div>
       <div class="content">
         <div class="tag">
-          <span class="cat">AI Agents</span>
+          <span class="cat">AI Agents &amp; QA</span>
+          <h3>Agent Loop — Multi-Framework Build &amp; QA Pipeline</h3>
+        </div>
+        <div class="desc">
+          <p>Orchestrated five parallel agent frameworks (Strands, Pydantic AI, Microsoft Agent Framework, Agno, Mastra) with a Google ADK orchestrator to build a small site end-to-end.</p>
+          <p>A QA agent opens each build in a real Chrome browser via Playwright MCP, verifies it works, and triggers one bounded auto-fix round for anything broken.</p>
+          <div class="stack">
+            <span>Google ADK</span><span>MCP</span><span>Playwright</span><span>Python</span><span>Multi-Agent Orchestration</span>
+          </div>
+          <div class="btns">
+            <a href="https://github.com/saaragmon/agent-loop" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="thumb"><i class="fas fa-chart-line"></i></div>
+      <div class="content">
+        <div class="tag">
+          <span class="cat">AI Agents &amp; MCP</span>
+          <h3>Autonomous Traders</h3>
+        </div>
+        <div class="desc">
+          <p>Four autonomous trading agents, each backed by a researcher agent, that read market data, use tools via MCP, and place trades on a schedule.</p>
+          <p>Built with the OpenAI Agents SDK and multiple MCP servers for accounts, market data, web search, and memory; a FastAPI backend and Vite dashboard visualize live portfolios and traces.</p>
+          <div class="stack">
+            <span>OpenAI Agents SDK</span><span>MCP</span><span>FastAPI</span><span>Python</span><span>Vite</span>
+          </div>
+          <div class="btns">
+            <a href="https://github.com/saaragmon/autonomous-traders" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="thumb"><i class="fas fa-magnifying-glass"></i></div>
+      <div class="content">
+        <div class="tag">
+          <span class="cat">Multi-Agent Systems</span>
           <h3>Deep Research</h3>
         </div>
         <div class="desc">
-          <p>Multi-agent research app: a Clarification Agent scopes your question, then a Research Manager runs planner, search, writer, and evaluator agents as tools — and emails the report.</p>
-          <p>The evaluator checks the draft against your goal (the original query plus your answers) and can send the writer back to revise before anything is sent.</p>
+          <p>A multi-agent research assistant: a Clarification Agent scopes a vague question into a goal, then a Research Manager orchestrates planner, search, writer, and evaluator agents as tools.</p>
+          <p>The evaluator checks the final report against the original goal and triggers a bounded rewrite loop before emailing the finished markdown report.</p>
           <div class="stack">
-            <span>Python</span><span>OpenAI Agents SDK</span><span>Gradio</span><span>Web Search</span>
+            <span>OpenAI Agents SDK</span><span>Python</span><span>Gradio</span><span>Tool Orchestration</span>
           </div>
           <div class="btns">
             <a href="https://github.com/saaragmon/deep-research" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
@@ -571,17 +606,37 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
     </div>
 
     <div class="box tilt">
-      <div class="thumb"><i class="fas fa-robot"></i></div>
+      <div class="thumb"><i class="fas fa-user-tie"></i></div>
+      <div class="content">
+        <div class="tag">
+          <span class="cat">Multi-Agent Systems</span>
+          <h3>Interview Prep Agents</h3>
+        </div>
+        <div class="desc">
+          <p>A coordinated team of specialist agents builds a personalized interview briefing site from a company name, job posting, and interviewer info — grounded only in facts from your resume.</p>
+          <p>A research agent gathers public sources, then topic agents write company, interviewer, STAR-story, and mock-interview pages in parallel, with retries and guardrails against inventing experience.</p>
+          <div class="stack">
+            <span>Google ADK</span><span>Python</span><span>Multi-Agent Orchestration</span><span>Gradio</span>
+          </div>
+          <div class="btns">
+            <a href="https://github.com/saaragmon/interview-prep" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="thumb"><i class="fas fa-paper-plane"></i></div>
       <div class="content">
         <div class="tag">
           <span class="cat">AI Agents</span>
           <h3>Job-Search Outreach Agent</h3>
         </div>
         <div class="desc">
-          <p>Multi-agent Gradio app: paste a job posting, research from your notes, match it to a CV, skip weak fits, then draft email and LinkedIn copy. A second LLM reviews the message like a recruiter and rewrites it.</p>
-          <p>Tracks applications in SQLite. Sends only to your inbox unless you explicitly allow another address — no recruiter scraping.</p>
+          <p>A multi-agent tool that checks a job posting honestly against a CV, only drafting outreach when the fit is real, then has a second LLM review the email like a recruiter before it goes out.</p>
+          <p>Also drafts a LinkedIn note and tracks every company, contact, and status in SQLite, with a safety guard that defaults all sends to your own inbox.</p>
           <div class="stack">
-            <span>Python</span><span>OpenAI Agents SDK</span><span>Gradio</span><span>SQLite</span>
+            <span>OpenAI Agents SDK</span><span>Python</span><span>Gradio</span><span>SQLite</span>
           </div>
           <div class="btns">
             <a href="https://github.com/saaragmon/Job-search-outreach-agent" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
@@ -646,6 +701,26 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
           </div>
           <div class="btns">
             <a href="https://github.com/saaragmon/song-popularity-regression" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="thumb"><i class="fas fa-dumbbell"></i></div>
+      <div class="content">
+        <div class="tag">
+          <span class="cat">OOP Design</span>
+          <h3>Gym Management System</h3>
+        </div>
+        <div class="desc">
+          <p>An object-oriented Python model of a gym: members, trainers, fitness classes, wellness services, and physiotherapists, all managed through a central Gym object.</p>
+          <p>Each class owns its own booking logic — enrollment, capacity, and waiting-list promotion — and the Gym object ties them together with schedule, membership, and services reporting.</p>
+          <div class="stack">
+            <span>Python</span><span>OOP Design</span><span>Unit Testing</span>
+          </div>
+          <div class="btns">
+            <a href="https://github.com/saaragmon/Gym-Management-System-OOP" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
           </div>
         </div>
       </div>
@@ -922,7 +997,7 @@ $(document).ready(function(){
 
 // ============ typed.js ============
 new Typed(".typing-text", {
-  strings: ["actionable insights", "interactive dashboards", "predictive models", "business decisions", "measurable impact"],
+  strings: ["actionable insights", "AI agents & automated workflows", "interactive dashboards", "predictive models", "measurable impact"],
   loop: true,
   typeSpeed: 55,
   backSpeed: 28,
