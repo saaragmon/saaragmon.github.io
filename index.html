@@ -291,6 +291,13 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
   box-shadow:0 5px 18px rgba(48,68,247,.5);
 }
 #contact-form button:hover{background:#1a047e;transform:translateY(-2px);}
+#contact-form button:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+#contact-form .form-status{
+  display:block;text-align:right;font-size:1.3rem;font-weight:600;
+  margin-bottom:.8rem;min-height:1.6rem;
+}
+#contact-form .form-status.success{color:#0a8a3f;}
+#contact-form .form-status.error{color:#c0293c;}
 
 /* ================= footer ================= */
 .footer{background:#0e0f31;color:#e9eaf5;padding:4rem 9% 2rem;}
@@ -544,6 +551,46 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
   <div class="box-container">
 
     <div class="box tilt">
+      <div class="thumb"><i class="fas fa-search"></i></div>
+      <div class="content">
+        <div class="tag">
+          <span class="cat">AI Agents</span>
+          <h3>Deep Research</h3>
+        </div>
+        <div class="desc">
+          <p>Multi-agent research app: a Clarification Agent scopes your question, then a Research Manager runs planner, search, writer, and evaluator agents as tools — and emails the report.</p>
+          <p>The evaluator checks the draft against your goal (the original query plus your answers) and can send the writer back to revise before anything is sent.</p>
+          <div class="stack">
+            <span>Python</span><span>OpenAI Agents SDK</span><span>Gradio</span><span>Web Search</span>
+          </div>
+          <div class="btns">
+            <a href="https://github.com/saaragmon/deep-research" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="thumb"><i class="fas fa-robot"></i></div>
+      <div class="content">
+        <div class="tag">
+          <span class="cat">AI Agents</span>
+          <h3>Job-Search Outreach Agent</h3>
+        </div>
+        <div class="desc">
+          <p>Multi-agent Gradio app: paste a job posting, research from your notes, match it to a CV, skip weak fits, then draft email and LinkedIn copy. A second LLM reviews the message like a recruiter and rewrites it.</p>
+          <p>Tracks applications in SQLite. Sends only to your inbox unless you explicitly allow another address — no recruiter scraping.</p>
+          <div class="stack">
+            <span>Python</span><span>OpenAI Agents SDK</span><span>Gradio</span><span>SQLite</span>
+          </div>
+          <div class="btns">
+            <a href="https://github.com/saaragmon/Job-search-outreach-agent" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
       <div class="thumb"><i class="fas fa-cogs"></i></div>
       <div class="content">
         <div class="tag">
@@ -579,6 +626,26 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
           </div>
           <div class="btns">
             <a href="https://github.com/saaragmon/queuechella-festival-simulation" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box tilt">
+      <div class="thumb"><i class="fas fa-chart-line"></i></div>
+      <div class="content">
+        <div class="tag">
+          <span class="cat">Statistical Modeling</span>
+          <h3>Song Popularity — Linear Regression Analysis</h3>
+        </div>
+        <div class="desc">
+          <p>Built a linear regression model to explain Spotify song popularity from audio features, through exploratory analysis, preprocessing, and formal model diagnostics.</p>
+          <p>Performed variable selection, dummy and interaction variables, AIC-based model selection, and assumption testing (normality, linearity), improving fit with targeted transformations.</p>
+          <div class="stack">
+            <span>R</span><span>Linear Regression</span><span>ggplot2</span><span>Statistical Analysis</span>
+          </div>
+          <div class="btns">
+            <a href="https://github.com/saaragmon/song-popularity-regression" class="btn" target="_blank" rel="noopener"><span>Code</span><i class="fas fa-code"></i></a>
           </div>
         </div>
       </div>
@@ -734,6 +801,9 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
     </div>
     <div class="content">
       <form id="contact-form" onsubmit="return handleContactSubmit(event)">
+        <input type="hidden" name="access_key" value="5a285ee0-38cf-4dec-9ad6-4dcb79572fdc">
+        <input type="hidden" name="subject" value="New message from your portfolio site">
+        <input type="checkbox" name="botcheck" class="hidden-honeypot" style="display:none">
         <div class="field">
           <input type="text" name="name" placeholder="Name" required>
           <i class="fas fa-user"></i>
@@ -751,6 +821,7 @@ header .navbar ul li a:hover{color:#011aff;border-bottom:.2rem solid #011aff;pad
           <i class="fas fa-comment-dots"></i>
         </div>
         <div class="button-area">
+          <span id="contact-status" class="form-status" role="status" aria-live="polite"></span>
           <button type="submit">Submit <i class="fa fa-paper-plane"></i></button>
         </div>
       </form>
@@ -916,18 +987,42 @@ if (window.ScrollReveal){
   sr.reveal('.contact .content', { origin: 'right', delay: 200 });
 }
 
-// ============ contact form (mailto fallback) ============
+// ============ contact form (Web3Forms) ============
 function handleContactSubmit(e){
   e.preventDefault();
   var f = e.target;
-  var name  = encodeURIComponent(f.name.value);
-  var email = encodeURIComponent(f.email.value);
-  var phone = encodeURIComponent(f.phone.value || '');
-  var msg   = encodeURIComponent(f.message.value);
-  var body  = 'From: ' + decodeURIComponent(name) + ' <' + decodeURIComponent(email) + '>%0D%0A'
-            + (phone ? 'Phone: ' + decodeURIComponent(phone) + '%0D%0A%0D%0A' : '%0D%0A')
-            + decodeURIComponent(msg);
-  window.location.href = 'mailto:saaragmon26@gmail.com?subject=Portfolio%20contact%20from%20' + name + '&body=' + body;
+  var status = document.getElementById('contact-status');
+  var btn = f.querySelector('button[type="submit"]');
+
+  if (f.botcheck && f.botcheck.checked) return false; // honeypot tripped
+
+  var data = new FormData(f);
+  btn.disabled = true;
+  status.className = 'form-status';
+  status.textContent = 'Sending…';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: data
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(json){
+    if (json.success) {
+      status.className = 'form-status success';
+      status.textContent = "Thanks! I've got your details and will be in touch soon.";
+      f.reset();
+    } else {
+      status.className = 'form-status error';
+      status.textContent = 'Something went wrong. Please try again or email me directly.';
+    }
+  })
+  .catch(function(){
+    status.className = 'form-status error';
+    status.textContent = 'Something went wrong. Please try again or email me directly.';
+  })
+  .finally(function(){ btn.disabled = false; });
+
   return false;
 }
 
